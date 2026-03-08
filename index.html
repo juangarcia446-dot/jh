@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalle Romántico</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(#0b0b2b,#000);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+overflow:hidden;
+}
+
+/* TARJETA */
+
+.tarjeta{
+background:white;
+color:#ff2fb3;
+padding:40px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 0 30px #ff2fb3;
+}
+
+.pinguinos{
+width:180px;
+}
+
+button{
+margin-top:20px;
+padding:15px 40px;
+border:none;
+border-radius:40px;
+background:#ff2fb3;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 25px #ff2fb3;
+}
+
+/* FLORES */
+
+.flores{
+display:none;
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.ramo{
+font-size:120px;
+animation:aparecer 2s ease;
+}
+
+@keyframes aparecer{
+
+0%{
+transform:scale(0);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* CORAZONES */
+
+.corazon{
+position:absolute;
+color:pink;
+font-size:20px;
+animation:flotar 5s linear infinite;
+}
+
+@keyframes flotar{
+
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(-800px);
+opacity:0;
+}
+
+}
+
+/* ESTRELLAS */
+
+.estrella{
+position:absolute;
+background:white;
+width:3px;
+height:3px;
+border-radius:50%;
+animation:brillar 2s infinite alternate;
+}
+
+@keyframes brillar{
+from{opacity:0.2}
+to{opacity:1}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TARJETA -->
+
+<div id="pantalla1" class="tarjeta">
+
+<div class="pinguinos">🐧❤️JHOSI🐧</div>
+
+<h2>¡Quédate conmigo!</h2>
+
+<button onclick="mostrarFlores()">Toca  Aquí  ❤️</button>
+
+</div>
+
+<!-- FLORES -->
+
+<div id="pantalla2" class="flores">
+
+<h1>    <br>      ❤️❤️    JHOSI  ❤️❤️ <br>
+     <br> ¡Eres una mujer extraordinaria 😃 <br>
+    <br> y te animo a seguir brillando 🌟 <br> 
+    <br>Que este día te inspire a alcanzar tus sueños <br> 
+              <br> FELIZ DIA DE LA MUJER <br>
+     <br>Este Ramo de Flores es Para Ti <br>
+           ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ <br>           </h1>
+
+<div class="ramo">💐</div>
+
+</div>
+
+<script>
+
+function mostrarFlores(){
+
+document.getElementById("pantalla1").style.display="none";
+document.getElementById("pantalla2").style.display="flex";
+
+crearCorazones()
+
+}
+
+/* corazones flotando */
+
+function crearCorazones(){
+
+setInterval(()=>{
+
+let corazon=document.createElement("div")
+
+corazon.className="corazon"
+
+corazon.innerHTML="❤"
+
+corazon.style.left=Math.random()*100+"vw"
+
+corazon.style.fontSize=(20+Math.random()*30)+"px"
+
+document.body.appendChild(corazon)
+
+setTimeout(()=>{
+
+corazon.remove()
+
+},5000)
+
+},300)
+
+}
+
+/* estrellas */
+
+for(let i=0;i<80;i++){
+
+let estrella=document.createElement("div")
+
+estrella.className="estrella"
+
+estrella.style.left=Math.random()*100+"vw"
+
+estrella.style.top=Math.random()*100+"vh"
+
+document.body.appendChild(estrella)
+
+}
+
+</script>
+
+</body>
+</html>
